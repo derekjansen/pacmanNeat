@@ -43,7 +43,7 @@ public class PacmanGame extends JFrame{
     public void initGraphics(){
         setTitle("Pacman");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(448, 496);
+        setSize(452, 494);
         setLocationRelativeTo(null);
         
     }
