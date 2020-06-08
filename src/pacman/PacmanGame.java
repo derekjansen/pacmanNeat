@@ -51,23 +51,28 @@ public class PacmanGame extends JFrame{
     //is this needed. I need some sync for moving right?
     public static void initTimer(){
         timer = new Timer();
-        timer.schedule(new GameTimer(), 0,250);
+        timer.schedule(new GameTimer(), 0,16);
     }
     
     public static class GameTimer extends TimerTask {
         public void run(){
-            System.out.println("BEEP");
+            
+            //this repraints on a timer
+            
+            //System.out.println("REPAINT");
+            gameBoard.getPacman().move();
+
+            gameBoard.repaint();
         }
     }
     
+    
+    
+    //runs the game
     public void runGame(){            
-        //do I do it like this or add a timer???
         //game goes until pacman is alive OR all dots are eaten.
-        while(gameBoard.getPacman().getIsAlive() && gameBoard.hasDots()){    
-           // System.out.println("PacMAN is alive");
-           // System.out.println("THE GAME BOARD HAS DOTS");
-            //gameBoard.getPacman().move();
-            //all ghosts move
+        while(gameBoard.getPacman().getIsAlive() && gameBoard.hasDots()){ 
+           //THIS IS A CHECK TO STOP THE GAME
         }
     }
     

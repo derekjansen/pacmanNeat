@@ -63,7 +63,6 @@ class Cell {
     public void draw(Graphics g){
 
         if(hasDot){
-            System.out.println("Drawing " + this.xPosition + "," + this.yPosition);
             g.setColor(DOT_COLOR);
             g.fillOval(yPosition * 16 + 8, xPosition * 16 + 8, 3, 3);
             
