@@ -2,6 +2,7 @@
 package Characters;
 
 import java.awt.Graphics2D;
+import pacman.Board;
 
 /**
  *
@@ -14,6 +15,7 @@ public class Pacman {
     private Integer xPosition;
     private Integer yPosition;
     private Integer chompPosition = 0;
+    public Board gameBoard;
     
     Direction directionFacing;
     enum Direction {
@@ -21,12 +23,13 @@ public class Pacman {
     }
     
     
-    public Pacman(Integer xpos, Integer ypos){
+    public Pacman(Integer xpos, Integer ypos, Board gameBoard){
         isAlive = true;
         isPoweredUp = false;
         directionFacing = Direction.EAST;
         xPosition = xpos;
         yPosition = ypos;
+        this.gameBoard = gameBoard;
     }
     
     public void setIsPoweredUp(boolean isPoweredUp){
@@ -61,55 +64,60 @@ public class Pacman {
         return yPosition;
     }
     
-    public void move(){
-        this.move(null);
-    }
-    
-    public void move(Integer key){
-        
-        //37 is left, 38 is up, 39 is right, 40 is down
+    public void changeDirection(Integer key){
+       System.out.println("xPosition is: " + xPosition); 
+       System.out.println("yPosition is: " + yPosition);  
+       
+       //Need to determine if it can change direction
+       //implement cornering. 
+       //should always be able to reverse direction regardless
+       
+       
+       //37 is left, 38 is up, 39 is right, 40 is down
        if(key != null){ 
             switch(key){
                 case 37:
-                    xPosition--;
                     directionFacing = directionFacing.WEST;
                     break;
                 case 38:
-                    yPosition--;
                     directionFacing = directionFacing.NORTH;
                     break;
                 case 39:
-                    xPosition++;
                     directionFacing = directionFacing.EAST;
                     break;
                 case 40:
-                    yPosition++;
                     directionFacing = directionFacing.SOUTH;
                     break;
                 default:
                     break;
             }
        }
+    }
+    
+    public void move(){
         
         
-      
-        //if it is a wall, stop moving
+        //TODO implement the check if wall method. need to pass direction and coordinate
         switch(directionFacing){
             case NORTH:{
+                checkIfWall();
                 yPosition--;
                 break;
             }   
             case SOUTH: {
-                yPosition++;                
+                checkIfWall();
+                yPosition++;               
                 break;
             }
             
             case EAST: {
+                checkIfWall();
                 xPosition++;
                 break;
             }   
             
             case WEST:{
+                checkIfWall();
                 xPosition--;
                 break;
             }
@@ -117,6 +125,24 @@ public class Pacman {
             default:
                 break;
         }
+        
+        //see if the current spot has a dot
+        checkIfDot();
+
+    }
+    
+    //TODO
+    //PASS DIRECTION AND COORDINATE PLUS ONE THEN CHECK THAT SPOT TO SEE IF IT IS A WALL
+    public boolean checkIfWall(){
+        //gameBoard.getCell(xPosition,yPosition).getIsWall();
+        return true;
+    }
+    
+    public void checkIfDot(){
+
+    }
+    
+    public void isImportantSpot(){
         
     }
     
@@ -143,4 +169,5 @@ public class Pacman {
         //315, 330, 345, 360
                  
     }   
+    
 }

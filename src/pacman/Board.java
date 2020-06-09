@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  *
  * @author DerekGrove
  */
-class Board extends JPanel implements KeyListener{
+public class Board extends JPanel implements KeyListener{
     
     public static Pacman pacman;
     public static Pinky pinky;
@@ -71,7 +71,7 @@ class Board extends JPanel implements KeyListener{
 
     public void initCharacters(){
 
-       pacman = new Pacman(100,100);
+       pacman = new Pacman(100,100,this);
        
        // pinky = new Pinky();
        // inky = new Inky();
@@ -97,7 +97,7 @@ class Board extends JPanel implements KeyListener{
 
     @Override
     public void keyPressed(java.awt.event.KeyEvent e) {
-        pacman.move(e.getKeyCode());
+        pacman.changeDirection(e.getKeyCode());
     }
 
     @Override

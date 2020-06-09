@@ -1,10 +1,5 @@
 package pacman;
 
-import Characters.Blinky;
-import Characters.Clyde;
-import Characters.Inky;
-import Characters.Pacman;
-import Characters.Pinky;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JFrame;
@@ -54,14 +49,16 @@ public class PacmanGame extends JFrame{
         timer.schedule(new GameTimer(), 0,16);
     }
     
+    
+    //TODO fix this stuff so it all runs as one
+    
+    
+    
     public static class GameTimer extends TimerTask {
         public void run(){
             
             //this repraints on a timer
-            
-            //System.out.println("REPAINT");
             gameBoard.getPacman().move();
-
             gameBoard.repaint();
         }
     }

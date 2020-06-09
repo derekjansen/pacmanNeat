@@ -8,7 +8,7 @@ import java.awt.Graphics;
  *
  * @author DerekGrove
  */
-class Cell {
+public class Cell {
     
     private final Color DOT_COLOR = new Color(192, 192, 0);
     private boolean isWall;
@@ -65,10 +65,7 @@ class Cell {
         if(hasDot){
             g.setColor(DOT_COLOR);
             g.fillOval(yPosition * 16 + 8, xPosition * 16 + 8, 3, 3);
-            
-            
-           
-            
+              
         }
     }
     
