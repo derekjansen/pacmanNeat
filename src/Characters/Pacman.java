@@ -125,16 +125,16 @@ public class Pacman {
         //draw pacman position
         switch(directionFacing){
             case EAST:
-               g2D.fillArc(xPosition, yPosition, 16, 16, 25, 315);
+               g2D.fillArc(xPosition, yPosition, 20, 20, 25, 315);
                break;
             case SOUTH:
-                g2D.fillArc(xPosition, yPosition, 16, 16, 295, 315);
+                g2D.fillArc(xPosition, yPosition, 20, 20, 295, 315);
                 break;
             case WEST:
-                g2D.fillArc(xPosition, yPosition, 16, 16, 205, 315);
+                g2D.fillArc(xPosition, yPosition, 20, 20, 205, 315);
                 break;
             case NORTH:
-                g2D.fillArc(xPosition, yPosition, 16, 16, 115, 315);
+                g2D.fillArc(xPosition, yPosition, 20, 20, 115, 315);
                 break;
             default:              
                 break;
